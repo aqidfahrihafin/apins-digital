@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,-50..200">
-    <link rel="stylesheet" href="{{ asset('css/admin-native.css') }}?v={{ filemtime(public_path('css/admin-native.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/admin-native.css') }}?v={{ config('app.asset_version', '1') }}">
 </head>
 <body>
     <aside class="admin-sidebar" id="adminSidebar">
@@ -26,8 +26,10 @@
             @endforeach
         </nav>
         <div class="admin-user">
-            <span>{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}</span>
-            <div><strong>{{ auth()->user()->name }}</strong><small>{{ auth()->user()->getRoleNames()->first() ?? 'Administrator' }}</small></div>
+            <a class="admin-user-avatar" href="{{ route('admin.profile.edit') }}" aria-label="Buka profil">
+                @if(auth()->user()->avatar)<img src="{{ Storage::disk('public')->url(auth()->user()->avatar) }}" alt="">@else{{ mb_strtoupper(mb_substr(auth()->user()->name, 0, 1)) }}@endif
+            </a>
+            <a class="admin-user-detail" href="{{ route('admin.profile.edit') }}"><strong>{{ auth()->user()->name }}</strong><small>{{ auth()->user()->getRoleNames()->first() ?? 'Administrator' }} · Profil</small></a>
             <form method="POST" action="{{ route('admin.logout') }}">@csrf<button title="Keluar"><span class="material-symbols-rounded">logout</span></button></form>
         </div>
     </aside>

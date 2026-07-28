@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\ResourceController as AdminResourceController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\ContactController;
@@ -32,6 +33,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['auth', EnsureAdminAccess::class])->group(function () {
         Route::get('/', AdminDashboardController::class)->name('dashboard');
         Route::post('/logout', [AdminAuthController::class, 'destroy'])->name('logout');
+        Route::get('/profile', [AdminProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
+        Route::put('/profile/password', [AdminProfileController::class, 'updatePassword'])->name('profile.password');
         Route::redirect('/service-details', '/admin/services');
         Route::redirect('/blog-post-tags', '/admin/blog-posts');
         Route::redirect('/portfolio-images', '/admin/portofolios');

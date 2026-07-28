@@ -107,6 +107,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Static Asset Version
+    |--------------------------------------------------------------------------
+    |
+    | Increment this value after deploying CSS or JavaScript changes to
+    | refresh browser caches without reading files from the public path.
+    |
+    */
+
+    'asset_version' => env('ASSET_VERSION', '1'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Maintenance Mode Driver
     |--------------------------------------------------------------------------
     |
