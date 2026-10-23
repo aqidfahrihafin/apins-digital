@@ -13,6 +13,9 @@
                     {{ $setting->portfolio_button_text ?: 'Lihat portofolio' }}
                 </a>
             </div>
+            <div class="hero-capabilities" aria-label="Fokus layanan">
+                <span>Website & aplikasi</span><span>IoT & integrasi</span><span>Desain digital</span>
+            </div>
             <div class="hero-proof">
                 <div class="proof-avatars">
                     @foreach($teams->take(3) as $member)
@@ -32,17 +35,20 @@
                     <div class="window-body">
                         <div class="mini-sidebar"><b></b><i></i><i></i><i></i></div>
                         <div class="mini-content">
-                            <div class="mini-label">PROJECT OVERVIEW</div>
-                            <div class="mini-title"></div>
-                            <div class="mini-title short"></div>
-                            <div class="mini-cards"><i></i><i></i><i></i></div>
-                            <div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                            <div class="mini-label">DARI IDE MENJADI NYATA</div>
+                            <h2 class="workspace-title">Ruang untuk<br>ide besar Anda.</h2>
+                            <p class="workspace-subtitle">Satu partner, setiap tahap perjalanan.</p>
+                            <div class="workspace-cards">
+                                <div><span class="material-symbols-rounded" aria-hidden="true">draw</span><strong>Desain</strong><small>Berpusat pada pengguna</small></div>
+                                <div><span class="material-symbols-rounded" aria-hidden="true">code</span><strong>Bangun</strong><small>Presisi di setiap detail</small></div>
+                            </div>
+                            <div class="workspace-progress"><span>Ide</span><i></i><span>Pengembangan</span><i></i><strong>Siap tumbuh</strong></div>
                         </div>
                     </div>
                 </div>
             @endif
             <div class="floating-note note-top"><span class="material-symbols-rounded">verified</span><div><strong>Production ready</strong><small>Aman dan mudah dikembangkan</small></div></div>
-            <div class="floating-note note-bottom"><span class="pulse-dot"></span><div><strong>99.9% uptime</strong><small>Monitoring sepanjang waktu</small></div></div>
+            <div class="floating-note note-bottom"><span class="pulse-dot"></span><div><strong>Dibangun untuk bertumbuh</strong><small>Dari langkah pertama hingga skala berikutnya</small></div></div>
         </div>
     </div>
 </section>
